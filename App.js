@@ -8,7 +8,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import {CustomHeader, CustomDrawerContent} from './src'
 import {HomeScreen, SettingsScreen} from './src/tab'
-import {NotificationsScreen} from './src/drawer'
+import {ProfilScreen} from './src/drawer'
 import {RegisterScreen, LoginScreen} from './src/auth'
 import {IMAGE} from './src/constants/Image'
 import React, {useEffect, useRef,useState} from 'react';
@@ -89,10 +89,10 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigator({navigation}) {
   return (
-    <Drawer.Navigator initialRouteName="MenuTab" 
+    <Drawer.Navigator initialRouteName="Haberler" 
       drawerContent={() => <CustomDrawerContent navigation={navigation}/>}>
-        <Drawer.Screen name="MenuTab" component={TabNavigator} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+        <Drawer.Screen name="Haberler" component={TabNavigator} />
+        <Drawer.Screen name="Profil" component={ProfilScreen} />
     </Drawer.Navigator>
   )
 }

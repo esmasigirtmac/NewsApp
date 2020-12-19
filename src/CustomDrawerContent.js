@@ -14,15 +14,15 @@ export class CustomDrawerContent extends Component {
             <ScrollView style={{marginLeft: 5}}>
                 <TouchableOpacity
                 style={{marginTop: 20}}
-                onPress={() => this.props.navigation.navigate('MenuTab')}
+                onPress={() => this.props.navigation.navigate('Haberler')}
                 >
-                <Text>Menu Tab</Text>
+                <Text>Haberler</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                 style={{marginTop: 20}}
-                onPress={() => this.props.navigation.navigate('Notifications')}
+                onPress={() => this.props.navigation.navigate('Profil')}
                 >
-                <Text>Notifications</Text>
+                <Text>Profil</Text>
                 </TouchableOpacity>
             </ScrollView>
 
@@ -30,7 +30,7 @@ export class CustomDrawerContent extends Component {
                 style={{marginTop: 20, marginLeft: 5}}
                 onPress={() => this.props.navigation.navigate('Login')}
                 >
-                <Text>Logout</Text>
+                <Text>Çıkış</Text>
                 </TouchableOpacity>
             </SafeAreaView>
         )
