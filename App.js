@@ -1,5 +1,4 @@
 
-
 import { Text, View, SafeAreaView, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -12,6 +11,8 @@ import {ProfilScreen} from './src/drawer'
 import {RegisterScreen, LoginScreen} from './src/auth'
 import {IMAGE} from './src/constants/Image'
 import React, {useEffect, useRef,useState} from 'react';
+import * as Notifications from 'expo-notifications';
+import * as Permissions from 'expo-permissions';
 
 
 const Tab = createBottomTabNavigator();
@@ -100,6 +101,24 @@ function DrawerNavigator({navigation}) {
 const StackApp = createStackNavigator()
 
 export default function App() {
+  useEffect(() => {
+    registerForPushNotification().then(token=>console.log(token)).catch(err=>console.log(Err))
+   
+  }, [])
+
+  async function registerForPushNotification(){
+    const {status} = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+    if (status != 'granted') {
+      const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+      // finalStatus = status;
+    }
+    if (status !== 'granted') {
+      alert('Failed to get push token for push notification!');
+      return;
+    }
+    token = (await Notifications.getExpoPushTokenAsync()).data;
+    return token
+  }
   
   
   return (

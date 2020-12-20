@@ -36,7 +36,7 @@ export class ProfilScreen extends Component {
 
             <Button
               color="#3740FE"
-              title="Logout"
+              title="Çıkış"
               onPress={() => this.signOut()}
             />
           </View>
