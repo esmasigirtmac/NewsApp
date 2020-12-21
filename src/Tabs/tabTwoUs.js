@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, View, SafeAreaView, FlatList, ActivityIndicator } from 'react-native';
-import { Container, Header, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
+import { Container, Content, Text} from 'native-base';
 
 import { getNews } from '../service/newsUs';
 

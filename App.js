@@ -1,16 +1,16 @@
 
-import { Text, View, SafeAreaView, Image, TouchableOpacity, ScrollView } from 'react-native';
+import {Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import {CustomHeader, CustomDrawerContent} from './src'
-import {HomeScreen, SettingsScreen} from './src/tab'
+import { CustomDrawerContent} from './src'
+import {HomeScreen, WorldScreen} from './src/tab'
 import {ProfilScreen} from './src/drawer'
 import {RegisterScreen, LoginScreen} from './src/auth'
 import {IMAGE} from './src/constants/Image'
-import React, {useEffect, useRef,useState} from 'react';
+import React, {useEffect} from 'react';
 import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
 
@@ -23,12 +23,8 @@ const navOptionHandler = () => ({
 
 const StackHome = createStackNavigator()
 
-function HomeStack({navigation, route}) {
-  if (route.state && route.state.routeNames[route.state.index] === "HomeDetail" ) {
-    navigation.setOptions({tabBarVisible: false})
-  } else {
-    navigation.setOptions({tabBarVisible: true})
-  }
+function HomeStack() {
+ 
   return (
     <StackHome.Navigator initialRouteName="Home">
       <StackHome.Screen name="Home" component={HomeScreen} options={navOptionHandler}/>
@@ -37,19 +33,14 @@ function HomeStack({navigation, route}) {
   )
 }
 
-const StackSetting = createStackNavigator()
+const StackWorld = createStackNavigator()
 
-function SettingStack({navigation, route}) {
-  if (route.state && route.state.index > 0) {
-    navigation.setOptions({tabBarVisible: false})
-  } else {
-    navigation.setOptions({tabBarVisible: true})
-  }
-  return (
-    <StackSetting.Navigator initialRouteName="World">
-      <StackSetting.Screen name="World" component={SettingsScreen} options={navOptionHandler}/>
+function WorldStack() {
+    return (
+    <StackWorld.Navigator initialRouteName="World">
+      <StackWorld.Screen name="World" component={WorldScreen} options={navOptionHandler}/>
     
-    </StackSetting.Navigator>
+    </StackWorld.Navigator>
   )
 }
 
@@ -81,7 +72,7 @@ function TabNavigator() {
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />
-        <Tab.Screen name="World" component={SettingStack} />
+        <Tab.Screen name="World" component={WorldStack} />
       </Tab.Navigator>
   )
 }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Text, View,Button, SafeAreaView, StyleSheet,TouchableOpacity } from 'react-native';
-import {CustomHeader} from '../index'
+
 
 
 

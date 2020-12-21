@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Text, View, SafeAreaView, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import {IMAGE} from './constants/Image'
 
 export class CustomHeader extends Component {
