@@ -12,16 +12,7 @@ export default class ModelView extends Component {
     handleClose = () => {
         return this.props.onClose();
     }
-    handleShare = () => {
-        const {url , title} = this.props.articleData;
-
-        message = `${title}\n\nRead More @${url}\n\nShare via RN News App`;
-
-        return Share.share(
-            {title,message,url:message},
-            {dialogTitle:`Share${title}`}
-            )
-    }
+   
     render() {
         const { showModal, articleData } = this.props;
         const { url } = articleData;
@@ -45,9 +36,7 @@ export default class ModelView extends Component {
                                 <Title children={articleData.title} style={{ color: 'white' }} />
                             </Body>
                             <Right>
-                                <Button onPress={this.handleShare} transparent>
-                                    <Icon name="share" style={{ color: 'white', fontSize: 12 }} />
-                                </Button>
+                                
                             </Right>
                         </Header>
                         <Content contentContainerStyle={{height:webViewHeight}}>
